@@ -1,0 +1,12 @@
+ja:
+  article:
+    write: "記事を書く"
+    index: "記事一覧"
+    show: "記事詳細"
+    
+  activerecord:
+    attributes:
+      article:
+        title: "タイトル"
+        body: "記事内容"
+        category_id: "カテゴリー"

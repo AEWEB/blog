@@ -1,0 +1,17 @@
+<div id="basic" data-role="page">
+  <div data-role="header">
+    <h1><%= notice %></h1>
+  </div>
+  <div data-role="content">
+	<p>
+  		<strong><%= t("users.nickname") %></strong>
+  		<%= @user.nickname %>
+	</p>
+	<p>
+  	<strong><%= t("users.mail") %></strong>
+  		<%= @user.mail %>
+	</p>
+   	<%= render 'users/footer' %>
+  </div>
+ <%= render 'shared/footer' %>
+</div>

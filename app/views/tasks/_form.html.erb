@@ -1,0 +1,52 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :goal %><br>
+    <%= f.text_field :goal %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <fieldset data-role="controlgroup" data-type="horizontal">
+    	<%= f.datetime_select :start_time ,:date_separator => '', :time_separator => '', :datetime_separator => '' %>
+    </fieldset>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <fieldset data-role="controlgroup" data-type="horizontal">
+    	<%= f.datetime_select :end_time ,:date_separator => '', :time_separator => '', :datetime_separator => '' %>
+    </fieldset>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br>
+    <%= f.text_field :priority %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :memo %><br>
+    <%= f.text_area :memo %>
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+ja:
+  blog:
+    manager: "ブログ情報管理"
+    
+  activerecord:
+    attributes:
+      bloginfo:
+        name: "ブログの名前"
+        description: "ブログの説明"
+    

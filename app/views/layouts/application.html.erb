@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>タイトル</title>
+<script type='text/javascript'>
+var error_url="<%= Blog::Application.config.error_url %>";
+var global_path="<%= @error_url %>";
+</script>
+<script src="<%= @error_url %>js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="<%= @error_url %>js/prettyLoader/js/jquery.prettyLoader.js"></script>
+<link rel="stylesheet" href="<%= @error_url %>js/prettyLoader/css/prettyLoader.css" type="text/css" media="screen" />
+<script type='text/javascript' src='<%= @error_url %>js/ajax.js'></script>
+<script type='text/javascript' src='<%= @error_url %>js/basic_function.js'></script>
+<script type='text/javascript' src='<%= @error_url %>js/alerts/jquery.alerts.js'></script> 
+<link rel='stylesheet' href='<%= @error_url %>js/alerts/jquery.alerts.css' type='text/css' media='screen'  />
+<script type='text/javascript' src='<%= @error_url %>js/tooltip/script.js'></script>	
+<link rel='stylesheet' href='<%= @error_url %>js/tooltip/style.css' type='text/css' />
+<script type='text/javascript'>
+	var access=new AccessSupport();
+	$(function() {
+		$.prettyLoader();
+    	
+    	//	$control->printJsJquery();
+
+	});
+</script>
+<link rel='stylesheet' href='<%= @error_url %>css/app.css' type='text/css' />
+
+</head>
+<body>
+
+		require_once $controller->getAppMenu();
+	<div id='contents_area'>
+		<%= yield %>
+	</div>
+	<div id="footer">
+		Copyright c 2013 SLup, Inc. All Rights Reserved
+	</div>
+	
+</body>
+</html>

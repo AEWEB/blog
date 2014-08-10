@@ -1,0 +1,27 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname, t("users.nickname")  %>
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :mail,t("users.mail") %>
+    <%= f.text_field :mail %>
+  </div>
+  <div class="field">
+    <%= f.label :password,t("users.password") %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

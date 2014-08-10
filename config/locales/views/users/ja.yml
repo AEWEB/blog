@@ -1,0 +1,19 @@
+ja:
+  users:
+    already_user: "既に登録済みの方"
+    create_user: "アカウント作成"
+    nickname: "ニックネーム"
+    mail: "メールアドレス"
+    password: "パスワード"
+    register: "登録完了しました！"
+    auth_failure: "もしくはパスワードが間違っています。"
+    nickname_uniqueness: "はすでに存在します。"
+    show: "会員登録情報"
+    edit: "会員登録情報更新"
+    
+  activerecord:
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        mail: "メールアドレス"
+        password: "パスワード"

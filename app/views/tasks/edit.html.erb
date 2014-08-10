@@ -1,0 +1,11 @@
+<div id="basic" data-role="page">
+  <div data-role="header">
+    <h1><%= t("task.edit") %></h1>
+  </div>
+  <div data-role="content">
+	<%= render 'form' %>
+	<%= link_to t("menu.edit"), edit_article_path(@task) %> |
+	<%= link_to t("menu.index"), tasks_path %>	
+  </div>
+  <%= render 'shared/footer' %>
+</div>

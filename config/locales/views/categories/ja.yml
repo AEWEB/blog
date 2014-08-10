@@ -1,0 +1,12 @@
+ja:
+  category:
+    display_name: "カテゴリー作成"
+    edit_category: "カテゴリー更新"
+    show_category: "カテゴリー詳細"
+    
+  activerecord:
+    attributes:
+      category:
+        name: "カテゴリー名"
+        order: "表示優先度"
+    

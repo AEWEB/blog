@@ -1,0 +1,39 @@
+<div id="basic" data-role="page">
+  <div data-role="header">
+		<h1>Listing users</h1>
+		
+		
+		
+  </div>
+  <div data-role="content">
+	<table>
+		<thead>
+			<tr>
+				<th>Nickname</th>
+				<th>Mail</th>
+				<th>Device</th>
+				<th>Password</th>
+				<th colspan="3"></th>
+			</tr>
+ 		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+ 			<tr>
+				<td><%= user.nickname %></td>
+				<td><%= user.mail %></td>
+				<td><%= user.device %></td>
+				<td><%= user.password %></td>
+				<td><%= link_to 'Show', user %></td>
+				<td><%= link_to 'Edit', edit_user_path(user) %></td>
+				<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<br>
+	<%= link_to 'New User', new_user_path %>
+	</div>
+	<div data-role="footer">
+		<%= link_to t("menu.login"), users_path %>
+	</div>
+</div>

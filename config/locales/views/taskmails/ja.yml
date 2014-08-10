@@ -1,0 +1,8 @@
+ja:
+  reportmail:
+    toaddress: "exp.sei16@gmail.com"
+    subject: "【日報_date】"
+    header: "お疲れ様です。nameです。\r\n本日の日報をお送り致します。\r\n"
+    footer: "以上、報告させて頂きます。"
+    name: "テスト"
+    send: "メールを送信しました。"
