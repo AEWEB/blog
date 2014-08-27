@@ -193,7 +193,10 @@ ja:
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
     
-  site_title: 練習サイト
+  site_title: "SLup"
+  concept_one: "リアルをソーシャル"
+  concept_two: "コーディネート"
+  
   menu:
     login: "ログイン"
     logout: "ログアウト"

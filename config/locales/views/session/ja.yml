@@ -1,3 +1,4 @@
 ja:
   login:
     display_name: "ログイン画面"
+    forget_id_and_password: "IDとパスワードを忘れてしまった場合"

@@ -14,7 +14,6 @@ class SessionController < ApplicationController
 
   def create
     @user=User.new(params.require(:user).permit(:nickname, :password))
-    @user.mail=TEMPMAIL
     if !@user.valid?
     elsif User.login(@user)
       login_to_top(@user)

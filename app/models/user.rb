@@ -4,9 +4,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :mail,
-    :uniqueness => {:case_sensitive => true},
-    :length => {:in => (5..100)},
-    :format => {:with =>VALID_EMAIL_REGEX}
+    :uniqueness => {:case_sensitive => true}
   validates :password,
     :length => {:in => (4..20)},
     :format => {:with => /\A[a-zA-Z0-9]+\z/}
@@ -15,6 +13,7 @@ class User < ActiveRecord::Base
     :format => {:with => /\A[a-zA-Z0-9]+\z/}
   
   validates :nickname,:uniqueness => {:case_sensitive => true}, on: :registration
+  validates :mail,:length => {:in => (5..100)},:format => {:with =>VALID_EMAIL_REGEX}, on: :registration
 
   def self.regist(user)
     if user.valid?(:registration)
