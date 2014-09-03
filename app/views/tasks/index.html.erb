@@ -1,3 +1,11 @@
+<a class="small blue_e awesome" href="#"><?php print(LearningResource::appName);	?></a>
+<a href="#" onclick="task.init('0','desc'); return false;" class="small gray awesome"><?php print(TaskResource::appName);	?></a>
+<a href="#" onclick="negotiator.init(); return false;" class="small blue_e awesome"><?php print(NegotiatorResource::appName);	?></a>
+<br/>
+
+<div id="run_exe" class="contents_base">
+
+
 <h1>Listing tasks</h1>
 <%= @str %>
 <table>
@@ -36,3 +44,11 @@
 
 <%= link_to 'メール送信', new_taskmail_path %>
 <%= link_to 'New Task', new_task_path %>
+
+</div>
+
+
+
+
+
+
