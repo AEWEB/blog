@@ -4,9 +4,6 @@ class Taskmail < ActiveRecord::Base
     tasks=Task.getTasks(user)
     taskmail = Taskmail.new
     taskmail.from="sohara_contact9022@jcom.home.ne.jp"
-    taskmail.address="exp.sei16@gmail.com"
-    taskmail.cc="exp.sei16@gmail.com"
-    taskmail.bcc="exp.sei16@gmail.com"
     datestr=Time.now
     taskmail.subject=I18n.t("reportmail.subject").gsub("date",datestr.month.to_s+datestr.day.to_s)
     taskmail.header=I18n.t("reportmail.header").gsub(/name/, I18n.t("reportmail.name")) +I18n.t("usual.newline");

@@ -15,25 +15,7 @@ class TaskmailsController < ApplicationController
 
   # GET /taskmails/new
   def new
-  # coding: utf-8
-    test="test"
-    Mail.defaults do
-      delivery_method(:smtp,
-        address:  "smtp.gmail.com",
-        port: 587,
-        domain: 'slup-blog.herokuapp.com',
-        user_name: 'exp.sei16@gmail.com',
-        password: '10169022',
-        authentication: 'plain',
-        enable_starttls_auto: true)
-    end
-    # example.co.jpサーバ宛てにメールを送信
-    Mail.deliver do
-      from    "exp.sei16@gmail.com"
-      to      "exp.sei16@gmail.com"
-      subject "subject text"
-      body    test
-    end
+    # coding: utf-8
     @taskmail=Taskmail.getNewMail(@current_user)
   end
 
