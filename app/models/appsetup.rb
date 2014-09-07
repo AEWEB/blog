@@ -6,6 +6,8 @@ class Appsetup
         address:  "smtp.gmail.com",
         port: 587,
         user_name: 'exp.sei16',
+        domain: 'slup-blog.herokuapp.com',
+        host: 'slup-blog.herokuapp.com',
         password: '10169022',
         authentication: 'plain',
         enable_starttls_auto: true)
