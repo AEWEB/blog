@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :taskmails
-
-  get 'tasks/sendMail' => 'tasks#sendMail'
-  
-  resources :tasks
+  resources :projects
 
   resources :users
   resources :session, :only => [:index,:new, :create, :destroy]
@@ -67,5 +63,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root :to => 'tasks#index'
+  root :to => 'top#index'
 end

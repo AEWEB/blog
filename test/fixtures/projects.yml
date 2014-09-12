@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  purpose: MyString
+  start_time: 2014-09-10 15:00:04
+  end_time: 2014-09-10 15:00:04
+  security: 1
+  project_type: 1
+  memo: MyText
+
+two:
+  name: MyString
+  purpose: MyString
+  start_time: 2014-09-10 15:00:04
+  end_time: 2014-09-10 15:00:04
+  security: 1
+  project_type: 1
+  memo: MyText

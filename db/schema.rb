@@ -11,37 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719135317) do
+ActiveRecord::Schema.define(version: 20140910060004) do
 
-  create_table "taskmails", force: true do |t|
-    t.string   "from"
-    t.string   "address"
-    t.string   "cc"
-    t.string   "bcc"
-    t.string   "subject"
-    t.text     "header"
-    t.text     "text"
-    t.text     "footer"
-    t.integer  "status"
-    t.integer  "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tasks", force: true do |t|
+  create_table "projects", force: true do |t|
     t.string   "name"
-    t.string   "goal"
-    t.text     "memo"
+    t.string   "purpose"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer  "state"
-    t.integer  "priority"
-    t.integer  "user_id",    null: false
+    t.integer  "security"
+    t.integer  "project_type"
+    t.text     "memo"
+    t.integer  "user_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nickname",   null: false
@@ -52,6 +37,6 @@ ActiveRecord::Schema.define(version: 20140719135317) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "tasks", "users", name: "tasks_user_id_fk", dependent: :delete
+  add_foreign_key "projects", "users", name: "projects_user_id_fk", dependent: :delete
 
 end

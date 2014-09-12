@@ -19,7 +19,7 @@ class Appsetup
       cc      mail.cc
       bcc     mail.bcc
       subject mail.subject
-      body    mail.header+I18n.t("usual.newline")+mail.text+I18n.t("usual.newline")+mail.footer
+      body    mail.header + I18n.t("usual.newline") + mail.text + I18n.t("usual.newline") + mail.footer
     end
   end
   
