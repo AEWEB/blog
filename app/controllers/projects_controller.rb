@@ -25,16 +25,15 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @project.user_id = @current_user.id
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+    
+    if @project.save
+      project_user = ProjectUser.new(:user_id=>@current_user.id,:project_id=>@project.id,:status=>0)
+      if project_user.save
+        redirect_to @project, notice: 'Project was successfully created.'
+        return
       end
     end
+    render :new
   end
 
   # PATCH/PUT /projects/1
