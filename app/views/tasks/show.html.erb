@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ta name:</strong>
+  <%= @task.ta_name %>
+</p>
+
+<p>
+  <strong>Ta goal:</strong>
+  <%= @task.ta_goal %>
+</p>
+
+<p>
+  <strong>Ta memo:</strong>
+  <%= @task.ta_memo %>
+</p>
+
+<p>
+  <strong>Ta start time:</strong>
+  <%= @task.ta_start_time %>
+</p>
+
+<p>
+  <strong>Ta end time:</strong>
+  <%= @task.ta_end_time %>
+</p>
+
+<p>
+  <strong>Ta security:</strong>
+  <%= @task.ta_security %>
+</p>
+
+<p>
+  <strong>Ta status:</strong>
+  <%= @task.ta_status %>
+</p>
+
+<p>
+  <strong>Ta priority:</strong>
+  <%= @task.ta_priority %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
