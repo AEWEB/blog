@@ -6,9 +6,9 @@ gem 'rails', '4.1.1'
 gem 'foreigner'
 # Use mysql as the database for Active Record
 gem 'mysql2', :group => [:development, :test]
-group :production do
-  gem 'pg'
-end
+#group :production do
+ # gem 'pg'
+#end
 #gem 'ruby-mysql'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
