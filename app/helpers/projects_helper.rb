@@ -14,8 +14,7 @@ module ProjectsHelper
     end
   end
   
-  def torage_project(project)
-     # 認証成功したらセッションに保存してTOPへリダイレクト
+  def storage_project(project)
      session[:project_id] = project.id
   end
   
