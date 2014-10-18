@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011144429) do
+ActiveRecord::Schema.define(version: 20141018162549) do
+
+  create_table "project_task_categories", force: true do |t|
+    t.integer  "project_id",       null: false
+    t.integer  "task_category_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_task_categories", ["project_id"], name: "index_project_task_categories_on_project_id", using: :btree
+  add_index "project_task_categories", ["task_category_id"], name: "index_project_task_categories_on_task_category_id", using: :btree
 
   create_table "project_tasks", force: true do |t|
     t.integer  "project_id", null: false
@@ -46,6 +56,12 @@ ActiveRecord::Schema.define(version: 20141011144429) do
     t.datetime "updated_at"
   end
 
+  create_table "task_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tasks", force: true do |t|
     t.string   "ta_name"
     t.string   "ta_goal"
@@ -67,6 +83,9 @@ ActiveRecord::Schema.define(version: 20141011144429) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "project_task_categories", "projects", name: "project_task_categories_project_id_fk", dependent: :delete
+  add_foreign_key "project_task_categories", "task_categories", name: "project_task_categories_task_category_id_fk", dependent: :delete
 
   add_foreign_key "project_tasks", "projects", name: "project_tasks_project_id_fk", dependent: :delete
   add_foreign_key "project_tasks", "tasks", name: "project_tasks_task_id_fk", dependent: :delete

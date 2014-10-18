@@ -1,2 +1,4 @@
 .project
 tmp/
+Gemfile
+Gemfile.lock
