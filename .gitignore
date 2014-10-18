@@ -2,3 +2,4 @@
 tmp/
 Gemfile
 Gemfile.lock
+log/development.log
