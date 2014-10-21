@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018162549) do
+ActiveRecord::Schema.define(version: 20141019061759) do
 
   create_table "project_task_categories", force: true do |t|
     t.integer  "project_id",       null: false
@@ -73,7 +73,10 @@ ActiveRecord::Schema.define(version: 20141018162549) do
     t.string   "ta_priority"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_task_category_id", null: false
   end
+
+  add_index "tasks", ["project_task_category_id"], name: "tasks_project_task_category_id_fk", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nickname",   null: false
@@ -92,5 +95,7 @@ ActiveRecord::Schema.define(version: 20141018162549) do
 
   add_foreign_key "project_users", "projects", name: "project_users_project_id_fk", dependent: :delete
   add_foreign_key "project_users", "users", name: "project_users_user_id_fk", dependent: :delete
+
+  add_foreign_key "tasks", "project_task_categories", name: "tasks_project_task_category_id_fk"
 
 end

@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  purpose: MyString
+  name: MyProject
+  purpose: MyProjectPurpose
   start_time: 2014-09-10 15:00:04
   end_time: 2014-09-10 15:00:04
   security: 1
@@ -10,8 +10,8 @@ one:
   memo: MyText
 
 two:
-  name: MyString
-  purpose: MyString
+  name: MyProject2
+  purpose: MyProjectPurpose2
   start_time: 2014-09-10 15:00:04
   end_time: 2014-09-10 15:00:04
   security: 1
