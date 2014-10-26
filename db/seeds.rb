@@ -7,7 +7,6 @@ SEED_DIR = File.join(Rails.root, 'db', 'seeds')
 
 def files_for(table_names)
   if table_names.empty?
-    puts("-------")
     Dir.glob(File.join(SEED_DIR, '*.{yml,csv}'))
   else
     table_names.inject({}) do |files, table_name|
