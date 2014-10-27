@@ -43,6 +43,16 @@
     <%= f.label :ta_priority %><br>
     <%= f.text_field :ta_priority %>
   </div>
+  <div class="field">
+    <%= f.label :ta_priority %><br>
+    <%= f.text_field :ta_priority %>
+  </div>
+  <div class="field">
+    <%= f.label :project_task_category_id %><br>
+    <%= f.select :project_task_category_id,
+    	 @current_project.project_task_categories.map{|p_t_category| [p_t_category.task_category.name, p_t_category.id]} %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
