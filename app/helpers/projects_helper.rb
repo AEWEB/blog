@@ -18,4 +18,8 @@ module ProjectsHelper
      session[:project_id] = project.id
   end
   
+  def init_project_helper
+    
+  end
+  
 end
