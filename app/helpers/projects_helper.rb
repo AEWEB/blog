@@ -16,10 +16,6 @@ module ProjectsHelper
   
   def storage_project(project)
      session[:project_id] = project.id
-  end
-  
-  def init_project_helper
-    
-  end
+  end  
   
 end
