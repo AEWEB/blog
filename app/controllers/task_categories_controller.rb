@@ -1,6 +1,7 @@
 class TaskCategoriesController < ApplicationController
   
   include ProjectsHelper
+  include TaskCategoriesHelper
   before_filter :current_project?
   before_action :set_task_category, only: [:show, :edit, :update, :destroy]
 
@@ -28,15 +29,11 @@ class TaskCategoriesController < ApplicationController
   # POST /task_categories.json
   def create
     @task_category = TaskCategory.new(task_category_params)
-    if @task_category.save
-       project_task_category = ProjectTaskCategory.new(:project_id=>@current_project.id,:task_category_id=>@task_category.id)
-       if project_task_category.save
-         redirect_to @task_category,notice: "Sucess!!"
-         return 
-       end
-       
+    if add_task_category?(@task_category)
+       redirect_to @task_category,notice: "Sucess!!"
+    else
+      render :new
     end
-    render :new
   end
 
   # PATCH/PUT /task_categories/1

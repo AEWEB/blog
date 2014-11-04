@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
  
   include ProjectsHelper
+  include TaskCategoriesHelper
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -28,10 +29,10 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    
     if @project.save
       project_user = ProjectUser.new(:user_id=>@current_user.id,:project_id=>@project.id,:status=>0)
       if project_user.save
+        init_project_task_category(@project)
         redirect_to @project, notice: 'Project was successfully created.'
         return
       end

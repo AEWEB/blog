@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019061759) do
+ActiveRecord::Schema.define(version: 20141103123647) do
+
+  create_table "levels", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "project_task_categories", force: true do |t|
     t.integer  "project_id",       null: false

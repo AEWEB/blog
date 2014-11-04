@@ -1,5 +1,6 @@
 ja:
   category:
+    default: "一般"
     display_name: "カテゴリー作成"
     edit_category: "カテゴリー更新"
     show_category: "カテゴリー詳細"

@@ -9,6 +9,10 @@ gem 'mysql2', :group => [:development, :test]
 #group :production do
  # gem 'pg'
 #end
+
+group :development, :test do
+   gem 'rspec-rails'
+end
 #gem 'ruby-mysql'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
