@@ -9,8 +9,11 @@ module ProjectsHelper
   def setup_project
     if !session[:project_id]
     else
-      @current_project = Project.find(session[:project_id])
-      logger.debug(@current_project.to_yaml)
+      project_user = ProjectUser.where(:project_id=>session[:project_id]).where(:user_id=>@current_user.id).first
+      if project_user
+         @current_project = project_user.project
+         logger.debug(@current_project.to_yaml)
+      end
     end
   end
   

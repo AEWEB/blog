@@ -28,25 +28,12 @@ class ApplicationController < ActionController::Base
      # 認証成功したらセッションに保存してTOPへリダイレクト
      session[:user_id] = user.id
      redirect_to top_index_path    
-  end
-  
-  
+  end  
   
   def isuser
      if session[:user_id]
        redirect_to :controller => "top"
      end
   end
-  def setupBlog
-   @bloginfo = Bloginfo.find_by(user_id: @current_user.id)
-  end
-  def isblog
-    setupBlog
-    if !@bloginfo
-      redirect_to new_bloginfo_path
-    end
-  end
-  def setupCategory
-    @categories = Category.where(user_id:@current_user.id).order("categories.order asc")
-  end
+
 end
