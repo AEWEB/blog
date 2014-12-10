@@ -8,6 +8,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    #プロジェクトタスクからタスク群を抽出して、インスタンスに格納する
+    
     @tasks = Task.all
   end
 
