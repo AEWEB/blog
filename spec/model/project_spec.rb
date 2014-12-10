@@ -4,6 +4,10 @@ describe Project do
   
     # 全てのバリデーションが有効であること
     it "is valid with a firstname, lastname and email"
+      project = Project.new(name:"プロジェクト名",purpose:"目的",start_time:"2005/10/16 11:11:12")
+      
+    
+    end
     it "is invalid without projectname"  do
       project = Project.new(name:nil)
       project.valid?
