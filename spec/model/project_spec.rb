@@ -3,21 +3,14 @@ describe Project do
     
   
     # 全てのバリデーションが有効であること
-    it "is valid with a firstname, lastname and email"
-      project = Project.new(name:"プロジェクト名",purpose:"目的",start_time:"2005/10/16 11:11:12")
-      
-    
+    it "is valid with a firstname, lastname and email" do
+      project = Project.new(name:"プロジェクト名",purpose:"目的",start_time:"2005/10/16 11:11:12",
+        end_time:"2005/10/16 11:11:12",security:"1",project_type:"2",memo:"memo")   
     end
     it "is invalid without projectname"  do
       project = Project.new(name:nil)
       project.valid?
       expect(project.errors[:name]).to include("は3文字以上で入力してください。")
-     # project = Project.new(name:nil)
-      #project.valid?
-    #  expect(project.errors[:name]).to include("プロジェクトの名前プロジェクトの名前テスト")
-     # project = Project.new(name:nil)
-      #project.valid?
-   #   expect(project.errors[:name]).to include("プロジェクトの名前プロジェクトの名前テス")
     end
     it "is invalid without a purpose" do
       project = Project.new(purpose:nil)
