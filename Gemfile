@@ -10,6 +10,8 @@ gem 'mysql2', :group => [:development, :test]
  # gem 'pg'
 #end
 
+gem 'validates_timeliness', '~> 3.0'
+
 group :development, :test do
    gem 'rspec-rails'
    gem 'cucumber'
