@@ -12,6 +12,7 @@ gem 'mysql2', :group => [:development, :test]
 
 group :development, :test do
    gem 'rspec-rails'
+   gem 'cucumber'
 end
 #gem 'ruby-mysql'
 # Use SCSS for stylesheets
