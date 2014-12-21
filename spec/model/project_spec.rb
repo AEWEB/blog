@@ -7,15 +7,30 @@ describe Project do
       project = Project.new(name:"プロジェクト名",purpose:"目的",start_time:"2005/10/16 11:11:12",
         end_time:"2005/10/16 11:11:12",security:"1",project_type:"2",memo:"memo")   
     end
+    
+    describe '#vaa' do
+       
+    end
+    
     it "is invalid without projectname"  do
       project = Project.new(name:nil)
       project.valid?
       expect(project.errors[:name]).to include("は3文字以上で入力してください。")
+      
+      project = Project.new(name:"12")
+      project.valid?
+      expect(project.errors[:name]).to include("は3文字以上で入力してください。")
+      
+      project = Project.new(name:"123456789012345678901")
+      project.valid?
+      expect(project.errors[:name]).to include("は20文字以内で入力してください。")
     end
     it "is invalid without a purpose" do
-      project = Project.new(purpose:nil)
+      project = Project.new(purpose:"12")
       project.valid?
       expect(project.errors[:purpose]).to include("は3文字以上で入力してください。")
+      
+      
     end
     it "is invalid without s start_time" do
       project = Project.new(start_time:nil)
