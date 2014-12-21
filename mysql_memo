@@ -1,0 +1,26 @@
+▼　DBのdumpとインポート Raw
+mysqldump -u gigron -p m_api > m_api.sql
+mysql -u gigron -p m_api < m_api.sql 
+----
+▼　DBの文字コード周りの設定確認 Raw
+show variables like 'character_set%';
+show global variables like 'character_set%';
+----
+▼　テーブルのcsvエクスポート Raw
+select * from dtb_api_result into outfile "/tmp/dtb_api_result.csv" fields terminated by ',' optionally enclosed by '"';
+select * from dtb_api_status_info into outfile "/tmp/dtb_api_status_info.csv" fields terminated by ',' optionally enclosed by '"';
+----
+▼　全DBのダンプとインポート Raw
+mysqldump -u gigron -p -x --all-databases > dump_20140515.sql
+mysql -u gigron -p < dump_20140508.sql
+-----
+▼ 文字コード設定変更 Raw
+set character_set_server = utf8;
+set character_set_database = utf8;
+
+
+
+サブライム
+
+
+select customer_id,kit_personalities.kit_id,data_myself_questions.id,data_myself_questions.name,kit_personality_answers.value from ((kit_personality_answers inner join kit_personalities on kit_personalities.id=kit_personality_answers.kit_personality_id) inner join data_myself_questions on data_myself_questions.id=data_myself_question_id) inner join kits on kits.kit_id=kit_personalities.kit_id order by customer_id,data_myself_questions.id limit 0,10000
