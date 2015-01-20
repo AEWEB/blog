@@ -1,15 +1,9 @@
 class TasksController < ApplicationController
-  
-  include ProjectsHelper
-  before_filter :current_project?
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
 
   # GET /tasks
   # GET /tasks.json
   def index
-    #プロジェクトタスクからタスク群を抽出して、インスタンスに格納する
-    
     @tasks = Task.all
   end
 
@@ -31,14 +25,16 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    if @task.save
-      project_task = ProjectTask.new(:project_id=>@current_project.id,:task_id=>@task.id)
-      if project_task.save
-        redirect_to @task, notice: 'Project was successfully created.'
-        return
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.json { render :show, status: :created, location: @task }
+      else
+        format.html { render :new }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
-    render :new
   end
 
   # PATCH/PUT /tasks/1
@@ -73,7 +69,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:ta_name, :ta_goal, :ta_memo, :ta_start_time, :ta_end_time, :ta_security, :ta_status, :ta_priority,
-        :project_task_category_id)
+      params.require(:task).permit(:name, :goal, :memo, :start_time, :end_time, :security, :state, :priority)
     end
 end
