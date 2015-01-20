@@ -1,0 +1,6 @@
+▼　e-r図作成
+rake erd RAILS_ENV=development
+▼　バッチ実行 
+rails runner "require './misc/data_patch/create_kits'; CreateKits.execute"
+▼ 正規表現
+@kitid.match(/N[AB]\d+/)
