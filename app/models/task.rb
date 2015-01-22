@@ -8,8 +8,12 @@ class Task < ActiveRecord::Base
   validates :security,
     :length => {:in => (1..3)},
     :numericality => {:only_integer => true}
-  validates :project_type,
+  validates :state,
     :length =>  {:in => (1..3)},
     :numericality => {:only_integer => true}
+  validates :priority,
+    :length =>  {:in => (1..3)},
+    :numericality => {:only_integer => true}
+  
   
 end
