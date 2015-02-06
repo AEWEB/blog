@@ -16,8 +16,6 @@ UPDATE dtb_customer_kitid SET kit_id = 'MY88000015' WHERE order_id = 73232;
   
 サーバーバッファオーバー 
 シード
-
-休暇届け
  
 use arcadia_on_staging;
 SELECT kit_id,data_genes.name,GHnumber,value FROM  ((kit_unit_genes inner join kit_units on kit_unit_genes.kit_unit_id=kit_units.id) 
@@ -31,9 +29,6 @@ where kit_unit_genes.data_unit_id="307" and kit_unit_genes.data_gene_id ="971"
 
 タスク管理
 ・タスクを表示する機能
-
-
-
 ソーシャルラーニング
 ・
 
