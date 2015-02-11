@@ -22,9 +22,12 @@ ActiveRecord::Schema.define(version: 20150114220918) do
     t.integer  "security"
     t.integer  "state"
     t.integer  "priority"
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nickname",   null: false
@@ -34,5 +37,7 @@ ActiveRecord::Schema.define(version: 20150114220918) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "tasks", "users", name: "tasks_user_id_fk", dependent: :delete
 
 end

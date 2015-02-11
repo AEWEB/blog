@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_filter :has_session, :except => [:show,:edit,:update]
-  before_filter :isuser,:only => [:index, :new]
+  before_filter :login?,:only => [:index, :new]
   
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   

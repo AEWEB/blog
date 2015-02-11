@@ -9,7 +9,8 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :security
       t.integer :state
       t.integer :priority
-
+      t.references :user, null: false, index: true
+      t.foreign_key :users, dependent: :delete
       t.timestamps
     end
   end

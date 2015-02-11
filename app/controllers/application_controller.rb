@@ -12,28 +12,23 @@ class ApplicationController < ActionController::Base
   # ユーザがログイン状態かどうか
   def has_session
     setupuser
-    if !@current_user
+    unless @current_user
+      session[:user_id] = nil
       redirect_to new_session_path
     end
   end
   
   def setupuser
-    if !session[:user_id]
-    else
-      @current_user = User.find(session[:user_id])
-    end
+    @current_user = User.find_by(id:session[:user_id]) if session[:user_id]
   end
   
   def login_to_top(user)
-     # 認証成功したらセッションに保存してTOPへリダイレクト
      session[:user_id] = user.id
      redirect_to top_index_path    
   end  
   
-  def isuser
-     if session[:user_id]
-       redirect_to :controller => "top"
-     end
+  def login?
+     redirect_to :controller => "top" if session[:user_id]
   end
 
 end

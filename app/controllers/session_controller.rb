@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   skip_filter :has_session
   
-  before_filter :isuser,:only => [:new, :create]
+  before_filter :login?,:only => [:new, :create]
   
   TEMPMAIL = "TEMPMAILMAIL@jo.jp"
   def index
