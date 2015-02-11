@@ -1,12 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 one:
+  id: 1
   nickname: mynickname
   mail: mymail@co.jp
   device: 1
   password: MyString
   
-two:
-  nickname: sohara
-  mail: sohara@co.jp
-  device: 0
-  password: 91178043e119522d9ebdcc1fa3a80207

@@ -95,5 +95,11 @@ RSpec.describe Task, :type => :model do
     task.valid?
     expect(task.errors[:priority]).to include("は数値で入力してください。")
   end
+  
+  it "is invalid without user"  do
+    #task = Task.new(user_id:"")
+    
+    #expect(task.valid?).to include(true)
+  end
     
 end

@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  
+  belongs_to :user
   validates :name, :length => {:in => (3..20)}
   validates :goal, :length =>{:in => (3..20)}
   validates :memo, :length => {:in => (0..500)}
