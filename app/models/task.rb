@@ -18,4 +18,8 @@ class Task < ActiveRecord::Base
     :numericality => {:only_integer => true}
   
   
+   scope :date_task, ->(date) do
+    where("start_time <= ?", date).where("end_time >= ?",date).order("priority asc")
+  end
+  
 end

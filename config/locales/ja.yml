@@ -200,6 +200,7 @@ ja:
   menu:
     login: "ログイン"
     logout: "ログアウト"
+    task: "タスク管理"
     signup: "サインアップ"
     home: "ホーム"
     input: "入力する"

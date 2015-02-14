@@ -2,5 +2,35 @@
   <div data-role="header">
     <h1>マイページ</h1>
   </div>
+  <div>
+  	<table>
+  		<thead>
+    		<tr>
+      			<th>Name</th>
+      			<th>Goal</th>
+      			<th>Memo</th>
+      			<th>Start time</th>
+      			<th>End time</th>
+      			<th>Security</th>
+      			<th>State</th>
+      			<th>Priority</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<% @tasks.each do |task| %>
+      			<tr>
+        			<td><%= task.name %></td>
+        			<td><%= task.goal %></td>
+        			<td><%= task.memo %></td>
+        			<td><%= task.start_time %></td>
+        			<td><%= task.end_time %></td>
+        			<td><%= task.security %></td>
+        			<td><%= task.state %></td>
+        			<td><%= task.priority %></td>
+				</tr>
+			<% end %>
+  		</tbody>
+	</table>
+  </div>
   <%= render 'shared/footer' %>
 </div>
