@@ -5,10 +5,20 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 gem 'foreigner'
 # Use mysql as the database for Active Record
-gem 'mysql2', :group => [:development, :test]
-#group :production do
- # gem 'pg'
-#end
+gem 'mysql2'
+
+gem 'unicorn'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler', github: 'capistrano/bundler'
+  gem 'capistrano3-unicorn'
+end
+
+
+
 
 gem 'validates_timeliness', '~> 3.0'
 
@@ -24,7 +34,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
