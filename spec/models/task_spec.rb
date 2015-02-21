@@ -4,7 +4,7 @@ RSpec.describe Task, :type => :model do
   
   it "is invalid success"  do
     task = Task.new(name:"ネーム",goal:"ゴール",memo:"メモ",start_time:"2015-01-03 00:00:00",end_time:"2015-01-03 00:00:00",
-      security:"0",state:"111",priority:"22")
+      security:"0",state:"1",priority:"2")
     expect(task.valid?).to eq(true)
   end
   
@@ -20,9 +20,9 @@ RSpec.describe Task, :type => :model do
     task.valid?
     expect(task.errors[:name]).to include("は3文字以上で入力してください。")
       
-    task = Task.new(name:"123456789012345678901")
+    task = Task.new(name:"123456789012345678901234567890123456789012345678901")
     task.valid?
-    expect(task.errors[:name]).to include("は20文字以内で入力してください。")
+    expect(task.errors[:name]).to include("は50文字以内で入力してください。")
   end
   
   it "is invalid without goal"  do
@@ -34,9 +34,9 @@ RSpec.describe Task, :type => :model do
     task.valid?
     expect(task.errors[:goal]).to include("は3文字以上で入力してください。")
       
-    task = Task.new(goal:"123456789012345678901")
+    task = Task.new(goal:"123456789012345678901234567890123456789012345678901")
     task.valid?
-    expect(task.errors[:goal]).to include("は20文字以内で入力してください。")
+    expect(task.errors[:goal]).to include("は50文字以内で入力してください。")
   end
   
   it "is invalid without memo"  do      
@@ -66,7 +66,7 @@ RSpec.describe Task, :type => :model do
     expect(task.errors[:security]).to include("は1文字以上で入力してください。")
     task = Task.new(security:"5555")
     task.valid?
-    expect(task.errors[:security]).to include("は3文字以内で入力してください。")
+    expect(task.errors[:security]).to include("は1文字以内で入力してください。")
     task = Task.new(security:"a")
     task.valid?
     expect(task.errors[:security]).to include("は数値で入力してください。")
@@ -78,7 +78,7 @@ RSpec.describe Task, :type => :model do
     expect(task.errors[:state]).to include("は1文字以上で入力してください。")
     task = Task.new(state:"5555")
     task.valid?
-    expect(task.errors[:state]).to include("は3文字以内で入力してください。")
+    expect(task.errors[:state]).to include("は1文字以内で入力してください。")
     task = Task.new(state:"a")
     task.valid?
     expect(task.errors[:state]).to include("は数値で入力してください。")
@@ -90,16 +90,10 @@ RSpec.describe Task, :type => :model do
     expect(task.errors[:priority]).to include("は1文字以上で入力してください。")
     task = Task.new(priority:"5555")
     task.valid?
-    expect(task.errors[:priority]).to include("は3文字以内で入力してください。")
+    expect(task.errors[:priority]).to include("は1文字以内で入力してください。")
     task = Task.new(priority:"a")
     task.valid?
     expect(task.errors[:priority]).to include("は数値で入力してください。")
   end
   
-  it "is invalid without user"  do
-    #task = Task.new(user_id:"")
-    
-    #expect(task.valid?).to include(true)
-  end
-    
 end

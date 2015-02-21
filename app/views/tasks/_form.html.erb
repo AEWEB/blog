@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,:size=>"50" %>
   </div>
   <div class="field">
     <%= f.label :goal %><br>
-    <%= f.text_field :goal %>
+    <%= f.text_field :goal ,:size=>"50" %>
   </div>
   <div class="field">
     <%= f.label :memo %><br>
-    <%= f.text_field :memo %>
+    <%= f.text_area :memo , :size=>"60x10"%>
   </div>
   <div class="field">
     <%= f.label :start_time %><br>
@@ -33,15 +33,15 @@
   </div>
   <div class="field">
     <%= f.label :security %><br>
-    <%= f.number_field :security %>
+    <%= f.select :security, options_for_select(Task.security_list,:selected => @task.security) %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.number_field :state %>
+    <%= f.select :state, options_for_select(Task.state_list,:selected => @task.state)  %>
   </div>
   <div class="field">
     <%= f.label :priority %><br>
-    <%= f.number_field :priority %>
+    <%= f.select :priority, options_for_select(Task.priority_list,:selected => @task.priority)  %>
   </div>
   <div class="actions">
     <%= f.submit %>
