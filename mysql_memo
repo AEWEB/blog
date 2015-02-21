@@ -24,3 +24,8 @@ set character_set_database = utf8;
 
 
 select customer_id,kit_personalities.kit_id,data_myself_questions.id,data_myself_questions.name,kit_personality_answers.value from ((kit_personality_answers inner join kit_personalities on kit_personalities.id=kit_personality_answers.kit_personality_id) inner join data_myself_questions on data_myself_questions.id=data_myself_question_id) inner join kits on kits.kit_id=kit_personalities.kit_id order by customer_id,data_myself_questions.id limit 0,10000
+
+
+0120_20150219_UPDATE_NEO-Upgrade7.csv
+0121_20150219_UPDATE_NEO54.csv
+0121_20150219_UPDATE_MYSELF5.csv

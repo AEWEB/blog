@@ -4,3 +4,7 @@ rake erd RAILS_ENV=development
 rails runner "require './misc/data_patch/create_kits'; CreateKits.execute"
 ▼ 正規表現
 @kitid.match(/N[AB]\d+/)
+
+ !!Object.create
+ booleanが一個だとnilだとtrueが返ってしまうため、
+ あえて二つにしてオブジェクトが返ってきた時にtrueにする。
