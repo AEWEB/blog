@@ -7,7 +7,9 @@ gem 'foreigner'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
-gem 'unicorn'
+platforms :ruby do # linux
+  gem 'unicorn'
+end
 
 group :development do
   gem 'capistrano'
@@ -16,9 +18,6 @@ group :development do
   gem 'capistrano-bundler', github: 'capistrano/bundler'
   gem 'capistrano3-unicorn'
 end
-
-
-
 
 gem 'validates_timeliness', '~> 3.0'
 

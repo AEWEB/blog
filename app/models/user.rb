@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   require 'digest/md5'
   
   has_many :tasks, :dependent => :destroy
+  has_many :categories, :dependent => :destroy
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

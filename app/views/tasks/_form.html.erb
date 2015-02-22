@@ -43,6 +43,10 @@
     <%= f.label :priority %><br>
     <%= f.select :priority, options_for_select(Task.priority_list,:selected => @task.priority)  %>
   </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.select :category_id, options_for_select(@current_user.categories.map{|t| [t.name, t.id]},:selected => @task.category_id),:prompt => t("category.not_select")  %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
