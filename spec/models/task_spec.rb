@@ -4,7 +4,7 @@ RSpec.describe Task, :type => :model do
   
   it "is invalid success"  do
     task = Task.new(name:"ネーム",goal:"ゴール",memo:"メモ",start_time:"2015-01-03 00:00:00",end_time:"2015-01-03 00:00:00",
-      security:"0",state:"1",priority:"2")
+      security:"0",state:"1",priority:"2",category_id: "1")
     expect(task.valid?).to eq(true)
   end
   
@@ -95,5 +95,6 @@ RSpec.describe Task, :type => :model do
     task.valid?
     expect(task.errors[:priority]).to include("は数値で入力してください。")
   end
+ 
   
 end
