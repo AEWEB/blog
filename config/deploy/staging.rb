@@ -7,9 +7,9 @@
 set :rails_env, 'staging'
 set :branch, 'master'
 
-role :app, %w(root@49.212.186.232)
-role :web, %w(root@49.212.186.232)
-role :db,  %w(root@49.212.186.232)
+role :app, %w(sohara@49.212.186.232)
+role :web, %w(sohara@49.212.186.232)
+role :db,  %w(sohara@49.212.186.232)
 
 # Extended Server Syntax
 # ======================
@@ -17,7 +17,7 @@ role :db,  %w(root@49.212.186.232)
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '49.212.186.232', user: 'root', roles: %w(web app db), my_property: :my_value
+server '49.212.186.232', user: 'sohara', roles: %w(web app db), my_property: :my_value
 
 # Custom SSH Options
 # ==================
@@ -26,11 +26,11 @@ server '49.212.186.232', user: 'root', roles: %w(web app db), my_property: :my_v
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+# set :ssh_options, {
+  #  keys: %w(/home/sohara/.ssh/id_rsa_blog),
+   # forward_agent: false,
+  #  auth_methods: %w(password)
+ # }
 #
 # And/or per server (overrides global)
 # ------------------------------------
