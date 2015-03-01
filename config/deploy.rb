@@ -7,14 +7,17 @@ set :repo_url, 'git@github.com:AEWEB/blog.git'
 set :keep_releases, 5
 
 set :rbenv_type, :system # :system or :user
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.2.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w(rake gem bundle ruby rails)
 set :rbenv_roles, :all # default value
 
 set :unicorn_pid, '/tmp/unicorn.pid'
 
+set :bundle_path, "#{shared_path}/bundle/"
+
 set :use_sudo, false
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
@@ -31,7 +34,7 @@ set :use_sudo, false
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
+#set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
@@ -66,7 +69,7 @@ end
 desc 'execute before deploy'
 task :db_create do
   on roles(:db) do |_host|
-    execute "mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS blog_#{fetch(:rails_env)};'"
+    execute "mysql -uroot -e 'CREATE DATABASE IF NOT EXISTS hello_#{fetch(:rails_env)};'"
   end
 end
 

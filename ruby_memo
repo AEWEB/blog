@@ -8,3 +8,10 @@ rails runner "require './misc/data_patch/create_kits'; CreateKits.execute"
  !!Object.create
  booleanが一個だとnilだとtrueが返ってしまうため、
  あえて二つにしてオブジェクトが返ってきた時にtrueにする。
+ 
+ \w 単語構成文字 [a-zA-Z0-9_]
+\W 非単語構成文字 [^a-zA-Z0-9_]
+\s 空白文字 [ \t\r\n\f]
+\S 非空白文字 [^ \t\r\n\f]
+\d 10進数字 [0-9]
+\D 非10進数字 [^0-9
