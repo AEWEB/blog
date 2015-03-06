@@ -15,3 +15,10 @@ rails runner "require './misc/data_patch/create_kits'; CreateKits.execute"
 \S 非空白文字 [^ \t\r\n\f]
 \d 10進数字 [0-9]
 \D 非10進数字 [^0-9
+
+命名規則
+#		インスタンスメソッド
+::		クラスメソッド
+
+ jenkins
+再テスト　→ test this please
