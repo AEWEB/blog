@@ -22,6 +22,9 @@ class Task < ActiveRecord::Base
   scope :date_task, ->(date) do
     where("start_time <= ?", date).where("end_time >= ?",date).order("priority asc")
   end
+  scope :categories, ->(category_id) do
+    where(category_id: category_id) if category_id
+  end
   
   def self.security_list
     {I18n.t("task.security.public") => "0",I18n.t("task.security.private") => "1"}

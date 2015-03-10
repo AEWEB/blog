@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = @current_user.tasks
+    @tasks = @current_user.tasks.categories(params[:category_id])
   end
 
   def show
