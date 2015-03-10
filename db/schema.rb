@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114220918) do
+ActiveRecord::Schema.define(version: 20150222021737) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -22,11 +31,13 @@ ActiveRecord::Schema.define(version: 20150114220918) do
     t.integer  "security"
     t.integer  "state"
     t.integer  "priority"
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
+  add_index "tasks", ["category_id"], name: "index_tasks_on_category_id", using: :btree
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
@@ -38,6 +49,9 @@ ActiveRecord::Schema.define(version: 20150114220918) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "categories", "users", name: "categories_user_id_fk", dependent: :delete
+
+  add_foreign_key "tasks", "categories", name: "tasks_category_id_fk", dependent: :delete
   add_foreign_key "tasks", "users", name: "tasks_user_id_fk", dependent: :delete
 
 end

@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   
   belongs_to :user
+  belongs_to :category
   validates :name, :length => {:in => (3..50)}
   validates :goal, :length =>{:in => (3..50)}
   validates :memo, :length => {:in => (0..500)}
@@ -20,6 +21,9 @@ class Task < ActiveRecord::Base
   
   scope :date_task, ->(date) do
     where("start_time <= ?", date).where("end_time >= ?",date).order("priority asc")
+  end
+  scope :categories, ->(category_id) do
+    where(category_id: category_id) if category_id
   end
   
   def self.security_list
