@@ -196,6 +196,7 @@ DEPENDENCIES
   foreigner
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   mysql2
   rails (= 4.1.1)
   rails-erd

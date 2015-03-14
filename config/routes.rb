@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
-  
   resources :categories
-
-  resources :tasks
+  resources :tasks do
+    collection do
+      get 'mail'
+    end
+  end
 
   resources :projects
 

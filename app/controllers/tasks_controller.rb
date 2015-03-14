@@ -1,8 +1,23 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_list, only: [:index, :mail]
 
   def index
-    @tasks = @current_user.tasks.categories(params[:category_id])
+  end
+  
+  def mail
+    if Rails.env != 'development'
+      mail = Mail.new do
+        from    'sohara@genesis-healthcare.jp'
+        to      'sohara@genesis-healthcare.jp'
+        subject 'Mail from Mail'
+        body    'There is a body.'
+      end
+      mail.delivery_method :smtp, { address:   'localhost',
+        port:      25,domain:    'localhost'}
+      mail.deliver!
+    end
+    render :text => 'メール送信済'
   end
 
   def show
@@ -53,6 +68,10 @@ class TasksController < ApplicationController
     def set_task
       @task = @current_user.tasks.find_by(id:params[:id])
       redirect_to :controller => "top" unless @task
+    end
+    
+    def set_task_list
+      @tasks = @current_user.tasks.categories(params[:category_id])
     end
 
     def task_params
