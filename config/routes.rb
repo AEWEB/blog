@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :mail_templates
+
   resources :categories
   resources :tasks do
     collection do

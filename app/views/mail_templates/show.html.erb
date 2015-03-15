@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @mail_template.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @mail_template.to %>
+</p>
+
+<p>
+  <strong>Cc:</strong>
+  <%= @mail_template.cc %>
+</p>
+
+<p>
+  <strong>Bcc:</strong>
+  <%= @mail_template.bcc %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @mail_template.subject %>
+</p>
+
+<p>
+  <strong>Header:</strong>
+  <%= @mail_template.header %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @mail_template.body %>
+</p>
+
+<p>
+  <strong>Footer:</strong>
+  <%= @mail_template.footer %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @mail_template.type %>
+</p>
+
+<%= link_to 'Edit', edit_mail_template_path(@mail_template) %> |
+<%= link_to 'Back', mail_templates_path %>

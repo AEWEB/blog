@@ -6,18 +6,36 @@ class TasksController < ApplicationController
   end
   
   def mail
+    day = Time.now.strftime("%m%d")
+    body_list = ''
+    @tasks.each{|task|
+      body_list = "#{body_list}#{task.priority}　#{task.name}　#{task.goal}　#{task.memo}　#{task.state}　\r\n"
+    }
+    template = MailTemplate.new(
+     from: 'sohara@genesis-healthcare.jp',
+     to: 'sohara@genesis-healthcare.jp',
+     bcc: 'sohara@genesis-healthcare.jp;sohara_contact9022@jcom.home.ne.jp;',
+     subject: "Daily report_#{day}",#subject typeにより、日付を追加できるか判定するかな
+     body: body_list,
+     header: "To Mr.Miyahara
+Thank you for your continued help.
+This is a report of the work of today.",
+     footer: "I hope the business will go well for both of us.
+
+From Seijyun Sohara."
+    )
     if Rails.env != 'development'
       mail = Mail.new do
-        from    'sohara@genesis-healthcare.jp'
-        to      'sohara@genesis-healthcare.jp'
-        subject 'Mail from Mail'
-        body    'There is a body.'
+        from    template.from
+        to      template.to
+        subject template.subject
+        body    "#{template.header}\r\n#{template.body}\r\n#{template.footer}"
       end
       mail.delivery_method :smtp, { address:   'localhost',
         port:      25,domain:    'localhost'}
       mail.deliver!
     end
-    render :text => 'メール送信済'
+    render :text => template.to_yaml
   end
 
   def show
