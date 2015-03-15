@@ -18,8 +18,10 @@ class TasksController < ApplicationController
      subject: "Daily report_#{day}",#subject typeにより、日付を追加できるか判定するかな
      body: body_list,
      header: "To Mr.Miyahara
+
 Thank you for your continued help.
-This is a report of the work of today.",
+This is a report of the work of today.
+",
      footer: "I hope the business will go well for both of us.
 
 From Seijyun Sohara."
