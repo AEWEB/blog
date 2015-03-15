@@ -30,6 +30,7 @@ From Seijyun Sohara."
       mail = Mail.new do
         from    template.from
         to      template.to
+        bcc     template.bcc
         subject template.subject
         body    "#{template.header}\r\n#{template.body}\r\n#{template.footer}"
       end
