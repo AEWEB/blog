@@ -1,0 +1,53 @@
+<%= form_for(@mail_template) do |f| %>
+  <% if @mail_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mail_template.errors.count, "error") %> prohibited this mail_template from being saved:</h2>
+
+      <ul>
+      <% @mail_template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from %><br>
+    <%= f.text_field :from %>
+  </div>
+  <div class="field">
+    <%= f.label :to %><br>
+    <%= f.text_field :to %>
+  </div>
+  <div class="field">
+    <%= f.label :cc %><br>
+    <%= f.text_field :cc %>
+  </div>
+  <div class="field">
+    <%= f.label :bcc %><br>
+    <%= f.text_field :bcc %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :header %><br>
+    <%= f.text_field :header %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <%= f.label :footer %><br>
+    <%= f.text_field :footer %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
