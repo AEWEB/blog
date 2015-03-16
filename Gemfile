@@ -19,6 +19,8 @@ group :development do
   gem 'capistrano3-unicorn'
 end
 
+gem 'mail'
+
 gem 'validates_timeliness', '~> 3.0'
 
 group :development, :test do

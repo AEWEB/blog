@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
-  
-  resources :categories
+  resources :mail_templates
 
-  resources :tasks
+  resources :categories
+  resources :tasks do
+    collection do
+      get 'mail'
+    end
+  end
 
   resources :projects
 
