@@ -20,7 +20,7 @@ class Task < ActiveRecord::Base
   
   
   scope :date_task, ->(date) do
-    where("start_time <= ?", date).where("end_time >= ?",date).order("priority asc")
+    where("start_time <= ?", date).where("end_time >= ? or state<>5",date).order("priority desc")
   end
   scope :categories, ->(category_id) do
     where(category_id: category_id) if category_id
