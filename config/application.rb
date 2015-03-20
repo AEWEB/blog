@@ -24,7 +24,9 @@ module Blog
     config.error_url = "jserror"
     config.global_url = "jsglobal"
     
-     config.global_url = "jsglobal"
     
+    config.global_url = "jsglobal"
+    
+    config.autoload_paths += %W(#{config.root}/lib/)
   end
 end
