@@ -8,9 +8,9 @@ class TopController < ApplicationController
   def mail
     day = Time.now.strftime("%m%d")
     body_list = ''
+    num = 1
     @tasks.each{|task|
-      num = 1
-      body_list = "#{body_list}#{num.to_s} #{task.name}\r\n#{task.goal}r\n→#{task.memo}　#{@state_list[task.state.to_s]}　\r\n"
+      body_list = "#{body_list}#{num.to_s} #{task.name}\r\n#{task.goal}\r\n→#{task.memo}　#{@state_list[task.state.to_s]}　\r\n\r\n"
       num += 1
     }
     template = MailTemplate.new(
