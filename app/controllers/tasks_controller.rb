@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  include TasksHelper
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_task_list, only: [:index, :mail]
 
@@ -92,6 +93,7 @@ From Seijyun Sohara."
     end
     
     def set_task_list
+      set_attribute_list
       @tasks = @current_user.tasks.categories(params[:category_id])
     end
 
