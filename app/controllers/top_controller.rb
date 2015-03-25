@@ -10,7 +10,7 @@ class TopController < ApplicationController
     body_list = ''
     num = 1
     @tasks.each{|task|
-      body_list = "#{body_list}#{num.to_s}　　#{task.name}　#{@state_list[task.state.to_s]}\r\n→　　#{task.goal}\r\n　　　#{task.memo}　\r\n\r\n"
+      body_list = "#{body_list}#{num.to_s}　　#{task.name}　#{@state_list[task.state.to_s]}\r\n→　　#{task.goal}\r\n　　　#{task.memo}　\r\n"
       num += 1
     }
     template = MailTemplate.new(
