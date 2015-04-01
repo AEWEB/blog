@@ -1,16 +1,17 @@
 class TopController < ApplicationController
   include TasksHelper
   before_action :set_task_list, only: [:index, :mail]
-  
+
   def index
   end
-  
+
   def mail
     day = Time.now.strftime("%m%d")
-    body_list = ''
+    line = '--------------------------------------------------'
+    body_list = "#{line}\r\n"
     num = 1
     @tasks.each{|task|
-      body_list = "#{body_list}#{num.to_s}　　#{task.name}　#{@state_list[task.state.to_s]}\r\n→　　#{task.goal}\r\n　　　#{task.memo}　\r\n"
+      body_list = "#{body_list}#{num.to_s}　　#{task.name}　|#{@state_list[task.state.to_s]}|\r\n→　　#{task.goal}\r\n#{line}\r\n"
       num += 1
     }
     template = MailTemplate.new(
@@ -42,7 +43,7 @@ From Seijyun Sohara."
     end
     render :text => nl2br("#{template.header}\r\n#{template.body}\r\n#{template.footer}")
   end
-  
+
   private
     def set_task_list
       set_attribute_list
