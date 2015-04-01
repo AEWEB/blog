@@ -27,17 +27,17 @@ class Task < ActiveRecord::Base
   end
   
   def self.security_list
-    {I18n.t("task.security.public") => "0",I18n.t("task.security.private") => "1"}
+    { I18n.t("task.security.public") => "0",I18n.t("task.security.private") => "1" }
   end
   
   def self.state_list
-    {I18n.t("task.state.not_started") => "0",I18n.t("task.state.started") => "1",I18n.t("task.state.progress") => "2",
-     I18n.t("task.state.hold") => "3", I18n.t("task.state.resolved") => "4", I18n.t("task.state.complete") => "5"}
+    { I18n.t("task.state.not_started") => "0",I18n.t("task.state.started") => "1",I18n.t("task.state.progress") => "2",
+      I18n.t("task.state.hold") => "3", I18n.t("task.state.resolved") => "4", I18n.t("task.state.complete") => "5" }
   end
   
   def self.priority_list
-    {I18n.t("task.priority.low") => "0",I18n.t("task.priority.middle") => "1",I18n.t("task.priority.high") => "2",
-     I18n.t("task.priority.urgent") => "3",I18n.t("task.priority.right_now") => "4"}
+    { I18n.t("task.priority.low") => "0",I18n.t("task.priority.middle") => "1",I18n.t("task.priority.high") => "2",
+      I18n.t("task.priority.urgent") => "3",I18n.t("task.priority.right_now") => "4" }
   end
   
 end

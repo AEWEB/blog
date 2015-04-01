@@ -25,9 +25,9 @@
         		<td><%= task.memo %></td>
         		<td><%= task.start_time %></td>
         		<td><%= task.end_time %></td>
-        		<td><%= task.security %></td>
-        		<td><%= task.state %></td>
-        		<td><%= task.priority %></td>
+        		<td><%= @security_list[task.security.to_s] %></td>
+        		<td><%= @state_list[task.state.to_s] %></td>
+        		<td><%= @priority_list[task.priority.to_s] %></td>
         		<td><%= link_to 'Show', task %></td>
         		<td><%= link_to 'Edit', edit_task_path(task) %></td>
 				<td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

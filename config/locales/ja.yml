@@ -232,21 +232,21 @@ ja:
     
   task:
     security:
-      public: "公開"
-      private: "非公開"
+      public: "Public"
+      private: "Private"
     state:
-      not_started: "未着手"
-      started: "着手"
-      progress: "進行中"
-      hold: "保留" 
-      resolved: "解決"
-      complete: "完了"
+      not_started: "not_started"
+      started: "started"
+      progress: "proguress"
+      hold: "hold" 
+      resolved: "resolved"
+      complete: "complete"
     priority:
-      low: "低め"
-      middle: "普通"
-      high: "高め"
-      urgent: "急ぎ"
-      right_now: "今すぐ"
+      low: "low"
+      middle: "middle"
+      high: "high"
+      urgent: "urgent"
+      right_now: "right_now"
       
   activerecord:
     errors:

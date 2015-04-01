@@ -17,6 +17,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler', github: 'capistrano/bundler'
   gem 'capistrano3-unicorn'
+  gem 'pry-byebug'
 end
 
 gem 'mail'
