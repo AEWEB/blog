@@ -237,7 +237,7 @@ ja:
     state:
       not_started: "not_started"
       started: "started"
-      progress: "proguress"
+      progress: "progress"
       hold: "hold" 
       resolved: "resolved"
       complete: "complete"
