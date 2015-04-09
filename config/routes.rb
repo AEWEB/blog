@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :task_histories
+
   resources :mail_templates
 
   resources :categories
