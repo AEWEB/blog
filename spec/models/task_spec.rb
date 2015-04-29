@@ -12,7 +12,6 @@ RSpec.describe Task, :type => :model do
     expect(task.valid?).to eq(true)
   end
   
-  
   it "is invalid without name"  do
     task = Task.new(name:nil)
     task.valid?

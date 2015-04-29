@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315103549) do
+ActiveRecord::Schema.define(version: 20150408055455) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20150315103549) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "task_histories", force: true do |t|
+    t.text     "memo"
+    t.integer  "task_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_histories", ["task_id"], name: "index_task_histories_on_task_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -64,6 +73,8 @@ ActiveRecord::Schema.define(version: 20150315103549) do
   end
 
   add_foreign_key "categories", "users", name: "categories_user_id_fk", dependent: :delete
+
+  add_foreign_key "task_histories", "tasks", name: "task_histories_task_id_fk", dependent: :delete
 
   add_foreign_key "tasks", "categories", name: "tasks_category_id_fk", dependent: :delete
   add_foreign_key "tasks", "users", name: "tasks_user_id_fk", dependent: :delete

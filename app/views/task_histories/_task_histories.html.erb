@@ -1,0 +1,21 @@
+<table>
+  <% @task_histories.each do |histories| %>
+    <tr>
+      <td>
+        <div id="<%= "task_history_memo_#{histories.id}" %>">
+          <%= histories.memo %>
+        </div>
+        <div id="<%= "task_history_textarea_#{histories.id}" %>" class="task_history_textarea">
+          <textarea id="<%= "task_history_text_#{histories.id}" %>" name="<%= "task_history_text_#{histories.id}" %>" cols=40 rows=4><%= histories.memo %></textarea>
+          <div style="text-align: right;">
+            <%= link_to t("menu.send"),"#",:onclick => "update_history('#{histories.id}')".html_safe %>
+          </div>
+        </div>
+      </td>
+      <td><%= histories.created_at %></td>
+      <td><%= histories.updated_at %></td>
+      <td><%= link_to t("menu.edit"),"#",:onclick => "edit_history('#{histories.id}')".html_safe %></td>
+      <td><%= link_to t("menu.delete"),"#",:onclick => "delete_history('#{histories.id}')".html_safe %></td>
+    </tr>
+  <% end %>
+</table>

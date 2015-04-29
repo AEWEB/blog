@@ -17,7 +17,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler', github: 'capistrano/bundler'
   gem 'capistrano3-unicorn'
-  gem 'pry-byebug'
 end
 
 gem 'mail'
@@ -27,6 +26,8 @@ gem 'validates_timeliness', '~> 3.0'
 group :development, :test do
    gem 'rspec-rails'
    #gem 'cucumber'
+   gem 'factory_girl_rails'
+   gem 'pry-byebug'
 end
 #gem 'ruby-mysql'
 # Use SCSS for stylesheets

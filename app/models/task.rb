@@ -2,6 +2,8 @@ class Task < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :category
+  has_many :task_histories
+  
   validates :name, :length => {:in => (3..50)}
   validates :goal, :length =>{:in => (3..50)}
   validates :memo, :length => {:in => (0..500)}
@@ -17,7 +19,6 @@ class Task < ActiveRecord::Base
   validates :priority,
     :length =>  {:in => (1..1)},
     :numericality => {:only_integer => true}
-  
   
   scope :date_task, ->(date) do
     where("start_time <= ?", date).where("end_time >= ? or state<>5",date).order("priority desc")

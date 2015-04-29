@@ -30,6 +30,13 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 }
+
+.task_history_textarea{
+  display:none;
+}
+
+
+
 /*-----メニュー----*/		
 #global_menu_area{
 	width:100%;

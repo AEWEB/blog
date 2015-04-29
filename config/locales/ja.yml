@@ -215,6 +215,7 @@ ja:
     create: "新規作成"
     index: "一覧"
     noselect: "指定なし"
+    send: "送信する"
     
   currency: 
     unit: "¥"
