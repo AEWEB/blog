@@ -10,4 +10,7 @@ module TasksHelper
     @task = @current_user.tasks.find_by(id:params[:task_id])
   end
   
+  def pickup_histories(task)
+    task.task_histories.date_histories(@search_time)
+  end
 end

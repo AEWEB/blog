@@ -200,9 +200,9 @@ ja:
   menu:
     login: "ログイン"
     logout: "ログアウト"
-    task: "タスク管理"
+    task: "task manager"
     signup: "サインアップ"
-    home: "ホーム"
+    home: "home"
     input: "入力する"
     history: "履歴"
     analyze: "分析する"
@@ -216,6 +216,7 @@ ja:
     index: "一覧"
     noselect: "指定なし"
     send: "送信する"
+    mypage: "mypage"
     
   currency: 
     unit: "¥"

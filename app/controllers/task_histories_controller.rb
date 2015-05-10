@@ -40,6 +40,6 @@ class TaskHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_history_params
-      params.require(:task_history).permit(:memo)
+      params.require(:task_history).permit(:memo,:start_time,:end_time)
     end
 end

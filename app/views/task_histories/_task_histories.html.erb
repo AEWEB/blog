@@ -6,16 +6,18 @@
           <%= histories.memo %>
         </div>
         <div id="<%= "task_history_textarea_#{histories.id}" %>" class="task_history_textarea">
-          <textarea id="<%= "task_history_text_#{histories.id}" %>" name="<%= "task_history_text_#{histories.id}" %>" cols=40 rows=4><%= histories.memo %></textarea>
+          <p><textarea id="<%= "task_history_text_#{histories.id}" %>" name="<%= "task_history_text_#{histories.id}" %>" cols=40 rows=4><%= histories.memo %></textarea></p>
+          <p><%= datetime_select :task_history_start_time, "history_#{histories.id}",:default =>histories.start_time %></p>
+          <p><%= datetime_select :task_history_end_time, "history_#{histories.id}",:default =>histories.end_time %></p>
           <div style="text-align: right;">
             <%= link_to t("menu.send"),"#",:onclick => "update_history('#{histories.id}')".html_safe %>
           </div>
         </div>
       </td>
-      <td><%= histories.created_at %></td>
-      <td><%= histories.updated_at %></td>
-      <td><%= link_to t("menu.edit"),"#",:onclick => "edit_history('#{histories.id}')".html_safe %></td>
-      <td><%= link_to t("menu.delete"),"#",:onclick => "delete_history('#{histories.id}')".html_safe %></td>
+      <td><%= histories.start_time %></td>
+      <td><%= histories.end_time %></td>
+      <td><%= link_to t("menu.edit"),"#",:onclick => "edit_history('#{histories.id}');return false;".html_safe %></td>
+      <td><%= link_to t("menu.delete"),"#",:onclick => "delete_history('#{histories.id};return false;')".html_safe %></td>
     </tr>
   <% end %>
 </table>

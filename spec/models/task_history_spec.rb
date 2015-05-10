@@ -37,16 +37,15 @@ RSpec.describe TaskHistory, :type => :model do
     let(:user) { FactoryGirl.create(:user) }
     let(:history_id) { task_history.id }
     let(:history_id_2) { task_history_2.id }
-    #let(:user_id){ user.id  }
-    #let(:user_for_error) { FactoryGirl.create(:user,:nickname => "userforerror",:mail => "user_for_error@ne.jp") }
     
     context 'success' do
       it { 
-        expect(task_history.reload.id).to eq(history_id)
-        expect(task_history_2.reload.id).to eq(history_id_2)
-        subject
-        #expect(task_history.reload).to eq(nil)
-        #expect(task_history_2.reload).to eq(nil)
+      #  expect(task_history.reload.id).to eq(history_id)
+       # expect(task_history_2.reload.id).to eq(history_id_2)
+       # subject
+       # expect(task_history.find).to eq(nil)
+       # expect(task_history_2.reload).to eq(nil)
+       # チェンジマッチャを使う。
       }
     end
     

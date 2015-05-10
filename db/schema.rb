@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20150408055455) do
 
   create_table "task_histories", force: true do |t|
     t.text     "memo"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer  "task_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
