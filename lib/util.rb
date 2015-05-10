@@ -10,4 +10,9 @@ module Util
     str = html_escape(str)
     str.gsub(/\r\n|\r|\n/, "<br />")
   end
+  
+  
+   def log_output(method, object)
+    logger.send(method, (output = "【 #{method.upcase} 】 #{object.to_yaml}"))
+  end
 end

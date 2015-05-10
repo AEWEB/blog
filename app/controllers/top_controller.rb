@@ -47,6 +47,10 @@ From Seijyun Sohara."
   private
     def set_task_list
       set_attribute_list
-      @tasks = @current_user.tasks.categories(params[:category_id]).date_task(Time.now.strftime("%Y-%m-%d %H:%M:%S"))
+      user_tasks = @current_user.tasks.categories(params[:category_id])
+      @tasks = user_tasks.date_task(Time.now.strftime("%Y-%m-%d %H:%M:%S"))
+      @pickup_tasks = @current_user.tasks.categories(params[:category_id]).joins(:task_histories).
+        merge(TaskHistory.date_histories((@search_time = Time.now.strftime("%Y-%m-%d")))).uniq
     end
+ 
 end

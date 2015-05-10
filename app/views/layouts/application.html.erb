@@ -3,30 +3,9 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>タイトル</title>
-		<%= javascript_include_tag 'application', :media => 'all', 'data-turbolinks-track' => true %>
-	<script type='text/javascript'>
-		var error_url="<%= Blog::Application.config.error_url %>";
-		var global_path="<%= Blog::Application.config.global_url %>";
-	</script>
+	<%= javascript_include_tag 'application', :media => 'all', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<%= javascript_include_tag "ajax.js" %>
-	<%= javascript_include_tag "basic_function.js" %>
-	
-	<%= javascript_include_tag "alerts/jquery.alerts.js" %>
-	<%= stylesheet_link_tag    "alerts/jquery.alerts.css", :media => "all" %>
-	
-	<%= javascript_include_tag "tooltip/script.js" %>
-	<%= stylesheet_link_tag    "tooltip/style.css", :media => "all" %>
-	<script type='text/javascript'>
-		var access=new AccessSupport();
-		$(function() {
-			$.prettyLoader();
-    	//	$control->printJsJquery();
-
-		});
-	</script>
 </head>
 <body>
 	<div id='contents_area'>
@@ -35,6 +14,5 @@
 	<div id="footer">
 		Copyright c 2013 SLup, Inc. All Rights Reserved
 	</div>
-	
 </body>
 </html>

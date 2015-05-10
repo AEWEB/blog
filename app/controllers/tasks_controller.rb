@@ -43,6 +43,8 @@ From Seijyun Sohara."
   end
 
   def show
+    @task_history = TaskHistory.new
+    @task_histories = @task.task_histories.order_desc
   end
 
   def new

@@ -47,3 +47,9 @@
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
+
+<%= render 'task_histories/form' %>
+<div id="task_history_area">
+  <%= render 'task_histories/task_histories' %>
+</div>
+<%= hidden_field_tag 'page[token]', form_authenticity_token() %>

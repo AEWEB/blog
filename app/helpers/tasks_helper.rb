@@ -6,4 +6,11 @@ module TasksHelper
     @priority_list = reverse_hash(Task.priority_list)
   end
   
+  def setup_task
+    @task = @current_user.tasks.find_by(id:params[:task_id])
+  end
+  
+  def pickup_histories(task)
+    task.task_histories.date_histories(@search_time)
+  end
 end

@@ -1,0 +1,36 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Goal</th>
+      		<th>Memo</th>
+      		<th>Start time</th>
+      		<th>End time</th>
+      		<th>Security</th>
+      		<th>State</th>
+      		<th>Priority</th>
+      		<th colspan="3"></th>
+    	</tr>
+  	</thead>
+  	<tbody>
+    	<% @pickup_tasks.each do |task| %>
+			<tr>
+				<td><%= task.name %></td>
+        		<td><%= task.goal %></td>
+        		<td><%= task.memo %></td>
+        		<td><%= task.start_time %></td>
+        		<td><%= task.end_time %></td>
+        		<td><%= @security_list[task.security.to_s] %></td>
+        		<td><%= @state_list[task.state.to_s] %></td>
+        		<td><%= @priority_list[task.priority.to_s] %></td>
+			</tr>
+			<tr>
+				<% pickup_histories(task).each do |task_history| %>
+    			<td>
+    				<%= task_history.memo %> : <%= Time.at(task_history.end_time - task_history.start_time).utc.strftime('%H:%M') %>
+    			</td>
+				<% end %>
+			</tr>
+		<% end %>
+  	</tbody>
+</table>
