@@ -4,7 +4,7 @@ class TaskHistory < ActiveRecord::Base
   
   scope :order_desc, -> { order(created_at: :desc) }
   scope :date_histories, ->(date) do
-    where("task_histories.start_time >= ?", "#{date} 00:00:00").where("task_histories.end_time <= ?","#{date} 23:59:59").order("task_histories.start_time desc")
+    where("task_histories.start_time >= ?", "#{date} 00:00:00").where("task_histories.end_time <= ?","#{date} 23:59:59")
   end
   
   class << self

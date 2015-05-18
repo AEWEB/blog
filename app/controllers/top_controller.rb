@@ -7,8 +7,21 @@ class TopController < ApplicationController
 
   def mail
     day = Time.now.strftime("%m%d")
-    line = '--------------------------------------------------'
-    body_list = "#{line}\r\n"
+    line          = '---------------------------------------------------'
+    today_line    = "◆◆◆◆◆ Today's task ◆◆◆◆◆"
+    tommorow_line = "◆◆◆◆◆ Tommorow's task ◆◆◆◆◆"
+    body_list = "#{today_line}\r\n"
+    num = 1
+    @pickup_tasks.each{|task|
+      body_list = "#{body_list}#{num.to_s}　　#{task.name}　|#{@state_list[task.state.to_s]}|\r\n"
+      pickup_histories(task).each do |task_history| 
+        body_list = "#{body_list}#{task_history.memo}　→　#{Time.at(task_history.end_time - task_history.start_time).utc.strftime('%H:%M')}　"
+      end
+      num += 1
+      body_list = "#{body_list}\r\n"
+    }
+    
+    body_list = "#{body_list}\r\n#{tommorow_line}\r\n"
     num = 1
     @tasks.each{|task|
       body_list = "#{body_list}#{num.to_s}　　#{task.name}　|#{@state_list[task.state.to_s]}|\r\n→　　#{task.goal}\r\n#{line}\r\n"
@@ -50,7 +63,7 @@ From Seijyun Sohara."
       user_tasks = @current_user.tasks.categories(params[:category_id])
       @tasks = user_tasks.date_task(Time.now.strftime("%Y-%m-%d %H:%M:%S"))
       @pickup_tasks = @current_user.tasks.categories(params[:category_id]).joins(:task_histories).
-        merge(TaskHistory.date_histories((@search_time = Time.now.strftime("%Y-%m-%d")))).uniq
+        merge(TaskHistory.date_histories((@search_time = Time.now.strftime("%Y-%m-%d")))).order("priority desc").uniq
     end
  
 end
