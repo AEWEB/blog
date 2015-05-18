@@ -2,3 +2,5 @@
 tmp/
 log/
 業務メモ
+*memo
+.capistrano
