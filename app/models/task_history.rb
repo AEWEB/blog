@@ -7,6 +7,10 @@ class TaskHistory < ActiveRecord::Base
     where("task_histories.start_time >= ?", "#{date} 00:00:00").where("task_histories.end_time <= ?","#{date} 23:59:59")
   end
   
+  validates_datetime :start_time
+  validates_datetime :end_time
+  validates :memo, :length =>{ maximum: 500 }
+  
   class << self
     def find_user(id,user_id)
       begin
