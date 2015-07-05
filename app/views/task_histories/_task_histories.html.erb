@@ -7,8 +7,8 @@
         </div>
         <div id="<%= "task_history_textarea_#{histories.id}" %>" class="task_history_textarea">
           <p><textarea id="<%= "task_history_text_#{histories.id}" %>" name="<%= "task_history_text_#{histories.id}" %>" cols=40 rows=4><%= histories.memo %></textarea></p>
-          <p><%= datetime_select :task_history_start_time, "history_#{histories.id}",:default =>histories.start_time %></p>
-          <p><%= datetime_select :task_history_end_time, "history_#{histories.id}",:default =>histories.end_time %></p>
+          <p><%= time_select :task_history_start_time, "history_#{histories.id}",:default =>histories.start_time %></p>
+          <p><%= time_select :task_history_end_time, "history_#{histories.id}",:default =>histories.end_time %></p>
           <div style="text-align: right;">
             <%= link_to t("menu.send"),"#",:onclick => "update_history('#{histories.id}')".html_safe %>
           </div>

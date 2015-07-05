@@ -5,7 +5,7 @@ class SessionController < ApplicationController
   
   TEMPMAIL = "TEMPMAILMAIL@jo.jp"
   def index
-     redirect_to new_session_path
+    redirect_to new_session_path
   end
 
   def new
